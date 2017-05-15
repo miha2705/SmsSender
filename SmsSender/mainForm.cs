@@ -74,7 +74,7 @@ namespace SmsSender
                 Application.Exit();
             }
 
-            sqlQuery = "SELECT checking, callsing, name, phone FROM drivers";
+            sqlQuery = "SELECT checking, callsing, name, phone, id FROM drivers";
             SQLiteDataAdapter adapter = new SQLiteDataAdapter(sqlQuery, dbConn);
             adapter.Fill(d_table);
             DataGridViewCheckBoxColumn chCol = new DataGridViewCheckBoxColumn();
@@ -93,6 +93,7 @@ namespace SmsSender
             dgrDrivers.Columns[1].HeaderText = "Позывной";
             dgrDrivers.Columns[2].HeaderText = "Фамилия";
             dgrDrivers.Columns[3].HeaderText = "Телефон";
+            dgrDrivers.Columns[4].Visible = false;      //Столбец с id делаем невидимым
             dgrDrivers.Columns[1].ReadOnly = true;
             dgrDrivers.Columns[2].ReadOnly = true;
             
@@ -108,7 +109,7 @@ namespace SmsSender
                 if (dgrDrivers[0, i].Value.ToString() == "True")
                 {
                     lstResivers.Add(dgrDrivers[3, i].Value.ToString());
-                          
+                         
                 }
                 
             }
