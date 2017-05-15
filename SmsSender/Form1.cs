@@ -15,5 +15,10 @@ namespace SmsSender
         {
             InitializeComponent();
         }
+
+        private void mmExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
