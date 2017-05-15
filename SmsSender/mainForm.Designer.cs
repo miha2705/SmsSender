@@ -37,9 +37,11 @@
             this.btnSendMsg = new System.Windows.Forms.Button();
             this.txtMessage = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.statusBar = new System.Windows.Forms.StatusStrip();
             this.dgrDrivers = new System.Windows.Forms.DataGridView();
+            this.stbComPort = new System.Windows.Forms.ToolStripStatusLabel();
             this.mainMenu.SuspendLayout();
+            this.statusBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrDrivers)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,7 +82,7 @@
             // mmSettings
             // 
             this.mmSettings.Name = "mmSettings";
-            this.mmSettings.Size = new System.Drawing.Size(152, 22);
+            this.mmSettings.Size = new System.Drawing.Size(134, 22);
             this.mmSettings.Text = "Настройки";
             this.mmSettings.Click += new System.EventHandler(this.mmSettings_Click);
             // 
@@ -112,13 +114,15 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Текст сообщения";
             // 
-            // statusStrip1
+            // statusBar
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 376);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(803, 22);
-            this.statusStrip1.TabIndex = 4;
-            this.statusStrip1.Text = "stsusBar";
+            this.statusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.stbComPort});
+            this.statusBar.Location = new System.Drawing.Point(0, 376);
+            this.statusBar.Name = "statusBar";
+            this.statusBar.Size = new System.Drawing.Size(803, 22);
+            this.statusBar.TabIndex = 4;
+            this.statusBar.Text = "stsusBar";
             // 
             // dgrDrivers
             // 
@@ -129,13 +133,19 @@
             this.dgrDrivers.Size = new System.Drawing.Size(579, 280);
             this.dgrDrivers.TabIndex = 5;
             // 
+            // stbComPort
+            // 
+            this.stbComPort.Name = "stbComPort";
+            this.stbComPort.Size = new System.Drawing.Size(118, 17);
+            this.stbComPort.Text = "toolStripStatusLabel1";
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(803, 398);
             this.Controls.Add(this.dgrDrivers);
-            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.statusBar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtMessage);
             this.Controls.Add(this.btnSendMsg);
@@ -150,6 +160,8 @@
             this.Load += new System.EventHandler(this.mainForm_Load);
             this.mainMenu.ResumeLayout(false);
             this.mainMenu.PerformLayout();
+            this.statusBar.ResumeLayout(false);
+            this.statusBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrDrivers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -166,8 +178,9 @@
         private System.Windows.Forms.Button btnSendMsg;
         private System.Windows.Forms.TextBox txtMessage;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.StatusStrip statusBar;
         private System.Windows.Forms.DataGridView dgrDrivers;
+        private System.Windows.Forms.ToolStripStatusLabel stbComPort;
     }
 }
 

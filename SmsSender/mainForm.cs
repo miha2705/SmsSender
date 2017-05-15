@@ -39,7 +39,7 @@ namespace SmsSender
             db_connect();
             db_read_all();
             format_dbgrid();
-            txtMessage.Text = comPort;
+            stbComPort.Text = comPort;
         }
 
         private void db_connect()
