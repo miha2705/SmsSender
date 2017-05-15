@@ -20,5 +20,10 @@ namespace SmsSender
         {
             Application.Exit();
         }
+
+        private void mainForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

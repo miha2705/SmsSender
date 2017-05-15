@@ -59,7 +59,7 @@
             // mmExit
             // 
             this.mmExit.Name = "mmExit";
-            this.mmExit.Size = new System.Drawing.Size(152, 22);
+            this.mmExit.Size = new System.Drawing.Size(108, 22);
             this.mmExit.Text = "Выход";
             this.mmExit.Click += new System.EventHandler(this.mmExit_Click);
             // 
@@ -74,7 +74,7 @@
             // mmSettings
             // 
             this.mmSettings.Name = "mmSettings";
-            this.mmSettings.Size = new System.Drawing.Size(152, 22);
+            this.mmSettings.Size = new System.Drawing.Size(134, 22);
             this.mmSettings.Text = "Настройки";
             // 
             // mainForm
@@ -87,6 +87,7 @@
             this.MainMenuStrip = this.mainMenu;
             this.Name = "mainForm";
             this.Text = "SmsSender";
+            this.Load += new System.EventHandler(this.mainForm_Load);
             this.mainMenu.ResumeLayout(false);
             this.mainMenu.PerformLayout();
             this.ResumeLayout(false);
