@@ -34,6 +34,10 @@
             this.mmExit = new System.Windows.Forms.ToolStripMenuItem();
             this.mmEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.mmSettings = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnSendMsg = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.mainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,16 +81,56 @@
             this.mmSettings.Size = new System.Drawing.Size(152, 22);
             this.mmSettings.Text = "Настройки";
             // 
+            // btnSendMsg
+            // 
+            this.btnSendMsg.Location = new System.Drawing.Point(44, 157);
+            this.btnSendMsg.Name = "btnSendMsg";
+            this.btnSendMsg.Size = new System.Drawing.Size(75, 23);
+            this.btnSendMsg.TabIndex = 1;
+            this.btnSendMsg.Text = "Отправить";
+            this.btnSendMsg.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(12, 52);
+            this.textBox1.MaxLength = 70;
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(153, 99);
+            this.textBox1.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(22, 36);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(97, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Текст сообщения";
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Location = new System.Drawing.Point(0, 310);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(684, 22);
+            this.statusStrip1.TabIndex = 4;
+            this.statusStrip1.Text = "stsusBar";
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 332);
+            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btnSendMsg);
             this.Controls.Add(this.mainMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mainMenu;
             this.Name = "mainForm";
             this.Text = "SmsSender";
+            this.Load += new System.EventHandler(this.mainForm_Load);
             this.mainMenu.ResumeLayout(false);
             this.mainMenu.PerformLayout();
             this.ResumeLayout(false);
@@ -101,6 +145,10 @@
         private System.Windows.Forms.ToolStripMenuItem mmExit;
         private System.Windows.Forms.ToolStripMenuItem mmEdit;
         private System.Windows.Forms.ToolStripMenuItem mmSettings;
+        private System.Windows.Forms.Button btnSendMsg;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.StatusStrip statusStrip1;
     }
 }
 
