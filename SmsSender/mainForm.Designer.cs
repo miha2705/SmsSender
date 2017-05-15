@@ -38,7 +38,9 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.dgrDrivers = new System.Windows.Forms.DataGridView();
             this.mainMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgrDrivers)).BeginInit();
             this.SuspendLayout();
             // 
             // mainMenu
@@ -48,7 +50,7 @@
             this.mmEdit});
             this.mainMenu.Location = new System.Drawing.Point(0, 0);
             this.mainMenu.Name = "mainMenu";
-            this.mainMenu.Size = new System.Drawing.Size(684, 24);
+            this.mainMenu.Size = new System.Drawing.Size(803, 24);
             this.mainMenu.TabIndex = 0;
             this.mainMenu.Text = "menuStrip1";
             // 
@@ -63,7 +65,7 @@
             // mmExit
             // 
             this.mmExit.Name = "mmExit";
-            this.mmExit.Size = new System.Drawing.Size(152, 22);
+            this.mmExit.Size = new System.Drawing.Size(108, 22);
             this.mmExit.Text = "Выход";
             this.mmExit.Click += new System.EventHandler(this.mmExit_Click);
             // 
@@ -83,12 +85,13 @@
             // 
             // btnSendMsg
             // 
-            this.btnSendMsg.Location = new System.Drawing.Point(44, 157);
+            this.btnSendMsg.Location = new System.Drawing.Point(53, 196);
             this.btnSendMsg.Name = "btnSendMsg";
             this.btnSendMsg.Size = new System.Drawing.Size(75, 23);
             this.btnSendMsg.TabIndex = 1;
             this.btnSendMsg.Text = "Отправить";
             this.btnSendMsg.UseVisualStyleBackColor = true;
+            this.btnSendMsg.Click += new System.EventHandler(this.btnSendMsg_Click);
             // 
             // textBox1
             // 
@@ -96,13 +99,13 @@
             this.textBox1.MaxLength = 70;
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(153, 99);
+            this.textBox1.Size = new System.Drawing.Size(166, 138);
             this.textBox1.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 36);
+            this.label1.Location = new System.Drawing.Point(41, 36);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(97, 13);
             this.label1.TabIndex = 3;
@@ -110,29 +113,43 @@
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 310);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 376);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(684, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(803, 22);
             this.statusStrip1.TabIndex = 4;
             this.statusStrip1.Text = "stsusBar";
+            // 
+            // dgrDrivers
+            // 
+            this.dgrDrivers.AllowUserToAddRows = false;
+            this.dgrDrivers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgrDrivers.Location = new System.Drawing.Point(224, 27);
+            this.dgrDrivers.Name = "dgrDrivers";
+            this.dgrDrivers.Size = new System.Drawing.Size(579, 280);
+            this.dgrDrivers.TabIndex = 5;
             // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 332);
+            this.ClientSize = new System.Drawing.Size(803, 398);
+            this.Controls.Add(this.dgrDrivers);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnSendMsg);
             this.Controls.Add(this.mainMenu);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mainMenu;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "mainForm";
             this.Text = "SmsSender";
             this.Load += new System.EventHandler(this.mainForm_Load);
             this.mainMenu.ResumeLayout(false);
             this.mainMenu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgrDrivers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -149,6 +166,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.DataGridView dgrDrivers;
     }
 }
 
