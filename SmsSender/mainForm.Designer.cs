@@ -35,7 +35,7 @@
             this.mmEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.mmSettings = new System.Windows.Forms.ToolStripMenuItem();
             this.btnSendMsg = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtMessage = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.dgrDrivers = new System.Windows.Forms.DataGridView();
@@ -80,8 +80,9 @@
             // mmSettings
             // 
             this.mmSettings.Name = "mmSettings";
-            this.mmSettings.Size = new System.Drawing.Size(134, 22);
+            this.mmSettings.Size = new System.Drawing.Size(152, 22);
             this.mmSettings.Text = "Настройки";
+            this.mmSettings.Click += new System.EventHandler(this.mmSettings_Click);
             // 
             // btnSendMsg
             // 
@@ -93,14 +94,14 @@
             this.btnSendMsg.UseVisualStyleBackColor = true;
             this.btnSendMsg.Click += new System.EventHandler(this.btnSendMsg_Click);
             // 
-            // textBox1
+            // txtMessage
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 52);
-            this.textBox1.MaxLength = 70;
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(166, 138);
-            this.textBox1.TabIndex = 2;
+            this.txtMessage.Location = new System.Drawing.Point(12, 52);
+            this.txtMessage.MaxLength = 70;
+            this.txtMessage.Multiline = true;
+            this.txtMessage.Name = "txtMessage";
+            this.txtMessage.Size = new System.Drawing.Size(166, 138);
+            this.txtMessage.TabIndex = 2;
             // 
             // label1
             // 
@@ -136,7 +137,7 @@
             this.Controls.Add(this.dgrDrivers);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtMessage);
             this.Controls.Add(this.btnSendMsg);
             this.Controls.Add(this.mainMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -163,7 +164,7 @@
         private System.Windows.Forms.ToolStripMenuItem mmEdit;
         private System.Windows.Forms.ToolStripMenuItem mmSettings;
         private System.Windows.Forms.Button btnSendMsg;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtMessage;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.DataGridView dgrDrivers;

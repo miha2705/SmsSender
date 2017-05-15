@@ -39,6 +39,7 @@ namespace SmsSender
             db_connect();
             db_read_all();
             format_dbgrid();
+            txtMessage.Text = comPort;
         }
 
         private void db_connect()
@@ -113,7 +114,13 @@ namespace SmsSender
                 }
                 
             }
-            textBox1.Text = lstResivers[0];
+            txtMessage.Text = lstResivers[0];
+        }
+
+        private void mmSettings_Click(object sender, EventArgs e)
+        {
+            settingsForm setForm = new settingsForm();
+            setForm.ShowDialog();
         }
     }
 }
