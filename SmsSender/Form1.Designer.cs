@@ -29,21 +29,35 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainForm));
+            this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.SuspendLayout();
+            // 
+            // mainMenu
+            // 
+            this.mainMenu.Location = new System.Drawing.Point(0, 0);
+            this.mainMenu.Name = "mainMenu";
+            this.mainMenu.Size = new System.Drawing.Size(684, 24);
+            this.mainMenu.TabIndex = 0;
+            this.mainMenu.Text = "menuStrip1";
             // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 332);
+            this.Controls.Add(this.mainMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.mainMenu;
             this.Name = "mainForm";
             this.Text = "SmsSender";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.MenuStrip mainMenu;
     }
 }
 
