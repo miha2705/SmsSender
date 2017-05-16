@@ -11,6 +11,7 @@ namespace SmsSender
     class SmsSending
     {
         private String msg;             // Текст СМС
+        private string msgUcs;          //Текст смс в формате UCS2
         private String comPortNum;      // Номер порта
         private string[] resivers;      // Список номеров Для отправки смс
         private SerialPort comPort;     // COM порт подключения модема
@@ -21,28 +22,75 @@ namespace SmsSender
             msg = textsms;
             comPortNum = port;
             comPort = new SerialPort();
+            
         }
 
         public void start_sending()
         {
             // Запуск рассылки
+            int sum = 0;
+            bool result; 
 
-            string msgUsc = StringToUCS2(msg);
             OpenPort();
-
-
+            for (int i = 0; i < resivers.Length; i++)
+            {
+                
+                result = send_msg(resivers[i], msg);
+                Thread.Sleep(1000);
+                if (result)
+                    sum += 1;
+            }
+            MessageBox.Show("Отправлено " + sum.ToString() + " сообщений");
             ClosePort();
-            
         }
 
-        private bool send_sms(string phoneNum)     // Заглушка
+        private bool send_msg(string telnumber, string textsms)     
         {
             // отправка сообщения
             if (!comPort.IsOpen)    // проверка открыт ли порт
                 return false;
+            try
+            {
+
+                Thread.Sleep(500);
+                comPort.WriteLine("AT\r\n");
+                Thread.Sleep(500);
+                comPort.WriteLine("AT+CMGF=0\r\n");
+                Thread.Sleep(500);
+            }
+            catch { return false; }
+
+            telnumber = telnumber.Replace("-", "").Replace(" ", "").Replace("+", "");
+            telnumber = "01" + "00" + telnumber.Length.ToString("X2") + "91" + EncodePhoneNumber(telnumber);
+
+            string leninByte = (textsms.Length / 2).ToString("X2");
+            textsms = telnumber + "00" + "08" + leninByte + textsms;
+            double lenMes = textsms.Length / 2;
+
+            try
+            {
+                comPort.WriteLine("AT+CMGS=" + (Math.Ceiling(lenMes)).ToString() + "\r\n");
+                Thread.Sleep(500);
+                textsms = "00" + textsms;
+                comPort.WriteLine(textsms + char.ConvertFromUtf32(26) + "\r\n");
+            }
+            catch { return false; }
+
+            try
+            {
+                string recievedData;
+                recievedData = comPort.ReadExisting();
+
+                if (recievedData.Contains("ERROR"))
+                {
+                    return false;
+                }
+
+            }
+            catch { }
 
             return true;
-        }
+            }
 
         private void OpenPort()
         {
@@ -64,7 +112,7 @@ namespace SmsSender
             }
             catch
             {
-                MessageBox.Show("Не удалось открыть порт " + comPortNum + comPort.IsOpen);               
+                MessageBox.Show("Не удалось открыть порт " + comPortNum);               
             }
         }
 
