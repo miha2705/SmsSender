@@ -5,13 +5,14 @@ using System.Data.SQLite;
 using System.IO;
 using System.Windows.Forms;
 
+
 namespace SmsSender
 {
     public partial class mainForm : Form
     {   
         
         private String dbFile;      // Файл БД
-        private String comPort;     // com порт подключения модема
+        private String comPortNum;     // com порт подключения модема
         private SQLiteConnection dbConn;    
         private SQLiteCommand sqlCmd;
         private List<string> lstResivers;   // Список получателей sms
@@ -31,7 +32,7 @@ namespace SmsSender
         {
             //Загрузка главной формы и получение параметров программы
             dbFile = Properties.Settings.Default.dbFile;
-            comPort = Properties.Settings.Default.comPport;
+            comPortNum = Properties.Settings.Default.comPport;
             dbConn = new SQLiteConnection();
             sqlCmd = new SQLiteCommand();
             lstResivers = new List<string>();
@@ -39,7 +40,7 @@ namespace SmsSender
             db_connect();
             db_read_all();
             format_dbgrid();
-            stbComPort.Text = comPort;
+            stbComPort.Text = comPortNum;
         }
 
         private void db_connect()
@@ -109,12 +110,19 @@ namespace SmsSender
             {
                 if (dgrDrivers[0, i].Value.ToString() == "True")
                 {
-                    lstResivers.Add(dgrDrivers[3, i].Value.ToString());
-                         
+                    lstResivers.Add(dgrDrivers[3, i].Value.ToString());                        
                 }
-                
             }
-            txtMessage.Text = lstResivers[0];
+
+            if (lstResivers.Count == 0 || txtMessage.Text == "")
+            {
+                /* Проверяем выбраны ли получатели и введен ли текст смс*/
+                MessageBox.Show("Выберетие получателей и введите текст смс");
+                return;
+            }
+
+            SmsSending sending = new SmsSending(lstResivers.ToArray(), txtMessage.Text, comPortNum);
+            sending.start_sending();
         }
 
         private void mmSettings_Click(object sender, EventArgs e)
@@ -123,4 +131,6 @@ namespace SmsSender
             setForm.ShowDialog();
         }
     }
+
+    
 }

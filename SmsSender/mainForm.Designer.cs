@@ -38,8 +38,8 @@
             this.txtMessage = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.statusBar = new System.Windows.Forms.StatusStrip();
-            this.dgrDrivers = new System.Windows.Forms.DataGridView();
             this.stbComPort = new System.Windows.Forms.ToolStripStatusLabel();
+            this.dgrDrivers = new System.Windows.Forms.DataGridView();
             this.mainMenu.SuspendLayout();
             this.statusBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrDrivers)).BeginInit();
@@ -124,6 +124,12 @@
             this.statusBar.TabIndex = 4;
             this.statusBar.Text = "stsusBar";
             // 
+            // stbComPort
+            // 
+            this.stbComPort.Name = "stbComPort";
+            this.stbComPort.Size = new System.Drawing.Size(118, 17);
+            this.stbComPort.Text = "toolStripStatusLabel1";
+            // 
             // dgrDrivers
             // 
             this.dgrDrivers.AllowUserToAddRows = false;
@@ -132,12 +138,6 @@
             this.dgrDrivers.Name = "dgrDrivers";
             this.dgrDrivers.Size = new System.Drawing.Size(579, 280);
             this.dgrDrivers.TabIndex = 5;
-            // 
-            // stbComPort
-            // 
-            this.stbComPort.Name = "stbComPort";
-            this.stbComPort.Size = new System.Drawing.Size(118, 17);
-            this.stbComPort.Text = "toolStripStatusLabel1";
             // 
             // mainForm
             // 
