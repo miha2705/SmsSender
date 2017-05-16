@@ -37,6 +37,7 @@ namespace SmsSender
             sqlCmd = new SQLiteCommand();
             lstResivers = new List<string>();
 
+            labMsg.Visible = false;
             db_connect();
             db_read_all();
             format_dbgrid();
@@ -104,7 +105,7 @@ namespace SmsSender
         private void btnSendMsg_Click(object sender, EventArgs e)
         {
             lstResivers.Clear();    // Очищаем списво получателей
-
+            
             // Собираем в список lstResivers телефоны получателей sms
             for (int i = 0; i < dgrDrivers.Rows.Count; i++)
             {
@@ -120,9 +121,13 @@ namespace SmsSender
                 MessageBox.Show("Выберетие получателей и введите текст смс");
                 return;
             }
-
+            
+            this.ControlBox = false;
+            
             SmsSending sending = new SmsSending(lstResivers.ToArray(), txtMessage.Text, comPortNum);
             sending.start_sending();
+
+            this.ControlBox = true;
         }
 
         private void mmSettings_Click(object sender, EventArgs e)

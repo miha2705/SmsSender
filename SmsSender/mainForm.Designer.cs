@@ -40,6 +40,7 @@
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.stbComPort = new System.Windows.Forms.ToolStripStatusLabel();
             this.dgrDrivers = new System.Windows.Forms.DataGridView();
+            this.labMsg = new System.Windows.Forms.Label();
             this.mainMenu.SuspendLayout();
             this.statusBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrDrivers)).BeginInit();
@@ -139,11 +140,24 @@
             this.dgrDrivers.Size = new System.Drawing.Size(579, 280);
             this.dgrDrivers.TabIndex = 5;
             // 
+            // labMsg
+            // 
+            this.labMsg.AutoSize = true;
+            this.labMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labMsg.ForeColor = System.Drawing.Color.Red;
+            this.labMsg.Location = new System.Drawing.Point(22, 237);
+            this.labMsg.Name = "labMsg";
+            this.labMsg.Size = new System.Drawing.Size(141, 96);
+            this.labMsg.TabIndex = 6;
+            this.labMsg.Text = "Идет\r\nрассылка\r\nСМС";
+            this.labMsg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(803, 398);
+            this.Controls.Add(this.labMsg);
             this.Controls.Add(this.dgrDrivers);
             this.Controls.Add(this.statusBar);
             this.Controls.Add(this.label1);
@@ -181,6 +195,7 @@
         private System.Windows.Forms.StatusStrip statusBar;
         private System.Windows.Forms.DataGridView dgrDrivers;
         private System.Windows.Forms.ToolStripStatusLabel stbComPort;
+        private System.Windows.Forms.Label labMsg;
     }
 }
 
