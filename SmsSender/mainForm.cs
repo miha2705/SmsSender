@@ -130,7 +130,5 @@ namespace SmsSender
             settingsForm setForm = new settingsForm();
             setForm.ShowDialog();
         }
-    }
-
-    
+    }    
 }
