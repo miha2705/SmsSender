@@ -37,7 +37,6 @@ namespace SmsSender
             sqlCmd = new SQLiteCommand();
             lstResivers = new List<string>();
 
-            labMsg.Visible = false;
             db_connect();
             db_read_all();
             format_dbgrid();
@@ -128,6 +127,7 @@ namespace SmsSender
             sending.start_sending();
 
             this.ControlBox = true;
+            
         }
 
         private void mmSettings_Click(object sender, EventArgs e)
