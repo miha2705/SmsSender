@@ -104,7 +104,7 @@ namespace SmsSender
         private void btnSendMsg_Click(object sender, EventArgs e)
         {
             lstResivers.Clear();    // Очищаем списво получателей
-            
+
             // Собираем в список lstResivers телефоны получателей sms
             for (int i = 0; i < dgrDrivers.Rows.Count; i++)
             {
