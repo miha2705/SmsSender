@@ -30,7 +30,7 @@ namespace SmsSender
 
         private void mainForm_Load(object sender, EventArgs e)
         {
-            //Загрузка главной формы и получение параметров программы
+            // Загрузка главной формы и получение параметров программы
             dbFile = Properties.Settings.Default.dbFile;
             comPortNum = Properties.Settings.Default.comPport;
             dbConn = new SQLiteConnection();
