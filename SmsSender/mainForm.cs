@@ -135,5 +135,30 @@ namespace SmsSender
             settingsForm setForm = new settingsForm();
             setForm.ShowDialog();
         }
+
+        private void btnAddDriver_Click(object sender, EventArgs e)
+        {
+            // Добавление Водителя
+            FormAddDriver addForm = new FormAddDriver(dbConn, dgrDrivers);
+            addForm.ShowDialog();
+            dgrDrivers.Rows.Clear();
+            db_read_all();
+        }
+
+        private void btnDelDriver_Click(object sender, EventArgs e)
+        {
+            int s = 0;
+            for (int i = 0; i < dgrDrivers.Rows.Count; i++)
+            {
+                if (dgrDrivers[0, i].Value.ToString() == true.ToString())
+                {
+                    sqlCmd.CommandText = "DELETE FROM drivers WHERE id = " + dgrDrivers[4, i].Value;
+                    sqlCmd.ExecuteNonQuery();
+                }
+            }
+
+            dgrDrivers.Rows.Clear();
+            db_read_all();
+        }
     }    
 }

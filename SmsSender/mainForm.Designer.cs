@@ -40,6 +40,8 @@
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.stbComPort = new System.Windows.Forms.ToolStripStatusLabel();
             this.dgrDrivers = new System.Windows.Forms.DataGridView();
+            this.btnDelDriver = new System.Windows.Forms.Button();
+            this.btnAddDriver = new System.Windows.Forms.Button();
             this.mainMenu.SuspendLayout();
             this.statusBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrDrivers)).BeginInit();
@@ -82,7 +84,7 @@
             // mmSettings
             // 
             this.mmSettings.Name = "mmSettings";
-            this.mmSettings.Size = new System.Drawing.Size(134, 22);
+            this.mmSettings.Size = new System.Drawing.Size(152, 22);
             this.mmSettings.Text = "Настройки";
             this.mmSettings.Click += new System.EventHandler(this.mmSettings_Click);
             // 
@@ -139,11 +141,39 @@
             this.dgrDrivers.Size = new System.Drawing.Size(579, 280);
             this.dgrDrivers.TabIndex = 5;
             // 
+            // btnDelDriver
+            // 
+            this.btnDelDriver.Image = global::SmsSender.Properties.Resources.Remove_Male_User;
+            this.btnDelDriver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDelDriver.Location = new System.Drawing.Point(525, 324);
+            this.btnDelDriver.Name = "btnDelDriver";
+            this.btnDelDriver.Size = new System.Drawing.Size(90, 40);
+            this.btnDelDriver.TabIndex = 7;
+            this.btnDelDriver.Text = "Удалить\r\nВодителя";
+            this.btnDelDriver.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDelDriver.UseVisualStyleBackColor = true;
+            this.btnDelDriver.Click += new System.EventHandler(this.btnDelDriver_Click);
+            // 
+            // btnAddDriver
+            // 
+            this.btnAddDriver.Image = global::SmsSender.Properties.Resources.Add_Male_User;
+            this.btnAddDriver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddDriver.Location = new System.Drawing.Point(372, 324);
+            this.btnAddDriver.Name = "btnAddDriver";
+            this.btnAddDriver.Size = new System.Drawing.Size(90, 40);
+            this.btnAddDriver.TabIndex = 6;
+            this.btnAddDriver.Text = "Добавить\r\nВодителя";
+            this.btnAddDriver.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAddDriver.UseVisualStyleBackColor = true;
+            this.btnAddDriver.Click += new System.EventHandler(this.btnAddDriver_Click);
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(803, 398);
+            this.Controls.Add(this.btnDelDriver);
+            this.Controls.Add(this.btnAddDriver);
             this.Controls.Add(this.dgrDrivers);
             this.Controls.Add(this.statusBar);
             this.Controls.Add(this.label1);
@@ -156,6 +186,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "mainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SmsSender";
             this.Load += new System.EventHandler(this.mainForm_Load);
             this.mainMenu.ResumeLayout(false);
@@ -181,6 +212,8 @@
         private System.Windows.Forms.StatusStrip statusBar;
         private System.Windows.Forms.DataGridView dgrDrivers;
         private System.Windows.Forms.ToolStripStatusLabel stbComPort;
+        private System.Windows.Forms.Button btnAddDriver;
+        private System.Windows.Forms.Button btnDelDriver;
     }
 }
 

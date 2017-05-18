@@ -61,6 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormAddDriver.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddDriver.Designer.cs">
+      <DependentUpon>FormAddDriver.cs</DependentUpon>
+    </Compile>
     <Compile Include="mainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +87,9 @@
       <DependentUpon>settingsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SmsSending.cs" />
+    <EmbeddedResource Include="FormAddDriver.resx">
+      <DependentUpon>FormAddDriver.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="mainForm.resx">
       <DependentUpon>mainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -103,6 +112,15 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icons\Add-Male-User.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icons\Edit-Male-User.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icons\Remove-Male-User.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.105.1\build\net40\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.105.1\build\net40\System.Data.SQLite.Core.targets')" />
