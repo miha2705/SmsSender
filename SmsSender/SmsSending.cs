@@ -29,24 +29,40 @@ namespace SmsSender
             int s = 0;
             bool result;
 
-            modem_up();
+            if (!modem_up())
+            {
+                MessageBox.Show("Рассылка остановлена");
+                return;
+            }
+                
             for (int i = 0; i < resivers.Length; i++)
             {
                 result = send_msg(resivers[i]);
                 if (result)
                     s++;
-                Thread.Sleep(1000);
+                Thread.Sleep(1500);
             }
 
             MessageBox.Show("Отправлено " + s.ToString() + " сообщений");
             modem_down();
         }
 
-        private void modem_up()
+        private bool modem_up()
         {
             // Подготовка модема к рассылке смс
 
             OpenPort();
+            string recievedData;
+            comPort.WriteLine("AT\r\n");
+            Thread.Sleep(500);
+            recievedData = comPort.ReadExisting();
+
+            if (!recievedData.Contains("OK"))
+            {
+                MessageBox.Show("Не удалось подключиться к модему!");
+                return false;
+            }
+
             try
             {
                 comPort.WriteLine("AT\r\n");  
@@ -57,8 +73,9 @@ namespace SmsSender
             catch
             {
                 MessageBox.Show("Не удалось подключиться к модему через " + comPortNum);
+                return false;
             }
-            
+            return true;
         }
 
         private void modem_down()
@@ -68,8 +85,6 @@ namespace SmsSender
 
         private bool send_msg(string telnumber)     
         {
-            if (!comPort.IsOpen) return false;
-
             try
             {
                 comPort.Write("AT+CMGS=\"" + telnumber + "\"" + "\r\n");
