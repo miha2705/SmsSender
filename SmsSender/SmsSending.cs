@@ -52,6 +52,10 @@ namespace SmsSender
             // Подготовка модема к рассылке смс
 
             OpenPort();
+            if (!comPort.IsOpen)
+            {
+                return false;
+            }
             string recievedData;
             comPort.WriteLine("AT\r\n");
             Thread.Sleep(500);
